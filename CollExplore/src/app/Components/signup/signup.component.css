@@ -1,0 +1,69 @@
+.container {
+  max-width: 600px;
+  margin-top: 72px;
+  margin-bottom: 20px;
+  margin-left: 480px;
+  box-shadow: 0 0 15px #0b0f19;
+  height: 650px;
+  transform: scale(0.9);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+h1,
+label {
+  color: white;
+}
+
+a {
+  color: rgb(184, 255, 250);
+}
+
+.btn-login {
+  height: 50px;
+  border-radius: 40px;
+  color: rgb(0, 3, 3);
+  background-color: rgb(0, 213, 255);
+  border: none;
+  box-shadow: 2px 2px 6px rgb(20, 20, 20);
+  font-size: 18px;
+}
+
+.btn-login:hover {
+  font-size: 18px;
+  background-color: rgba(0, 53, 63, 0.537);
+  color: rgb(0, 247, 255);
+  border: 1px solid rgb(0, 247, 255);
+  box-shadow: 0 0 10px rgb(0, 247, 255), inset 0 0 10px rgb(0, 247, 255);
+}
+input.ng-untouched.ng-invalid{
+  box-shadow: 0 0 10px rgb(24, 243, 255);
+  border: none;
+}
+input.ng-touched.ng-invalid {
+  box-shadow: 0 0 10px red;
+  border: none;
+}
+
+input.ng-valid {
+  box-shadow: 0 0 10px rgb(42, 255, 52);
+  border: none;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  color: rgb(163, 163, 163);
+}
+
+.icon-btn {
+  position: absolute;
+  right: 78px;
+  border: none;
+  background: none;
+  padding-top: 7px;
+}

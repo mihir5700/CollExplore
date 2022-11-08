@@ -1,0 +1,59 @@
+<header class="header navbar navbar-expand-lg bg-light navbar-sticky navbar-stuck">
+  <div class="container px-3 d-flex">
+    <a routerLink="" class="navbar-brand pe-3">
+      <img src="/assets/img/search.png" style="margin-right: 5px; margin-bottom: 4px;" alt="" width="42" height="42" />
+      <strong style="color: #0004ff;">CollExplore</strong>
+    </a>
+    <div id="navbarNav" class="offcanvas offcanvas-end">
+      <div class="offcanvas-body">
+        <ul class="navbar-nav d-flex">
+          <li class="nav-item dropdown mr-3 my-2">
+            <a routerLink="about" routerLinkActive="class-active" id="about" class="nav-link" #navbarElement>About</a>
+          </li>
+          <li class="nav-item dropdown mr-2 my-2">
+            <a routerLink="contact-us" routerLinkActive="class-active" id="contact" class="nav-link"
+              #navbarElement>Contact Us</a>
+          </li>
+          <li class="nav-item dropdown mr-2 my-2">
+            <a routerLink="college-predictor" *ngIf="_authService.loggedIn(); else disabledBlock" class="nav-link"
+              routerLinkActive="class-active" id="predict" #navbarElement>College Predictor</a>
+          </li>
+          <ng-template #disabledBlock>
+            <div class="nav-disabled-item d-flex ">
+              <span class="material-symbols-rounded">
+                workspace_premium
+              </span>Try College Predictor
+              <div class="modalcard">
+                You need to Login or Create an Account in-order to use this feature !
+              </div>
+            </div>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons mx-5">
+    <button type="submit" *ngIf="!_authService.loggedIn()" class='button-form mx-2' routerLink="login"
+      routerLinkActive="class-active-btn">
+      Login
+    </button>
+    <button type="submit" *ngIf="!_authService.loggedIn()" class='button-form' routerLink="signup"
+      routerLinkActive="class-active-btn">
+      Sign Up
+    </button>
+    <div class="nav-item mx-5" *ngIf="_authService.loggedIn()">
+      <div class="dropdown" style="cursor: pointer;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{this.username}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="_authService.logOut2()">Log in with another account</a>
+          <a class="dropdown-item" id="btnLogOut" *ngIf="_authService.loggedIn()" (click)="_authService.logOut1()"><i
+              class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,166 @@
+@import url("http://fonts.cdnfonts.com/css/eagle-book");
+@import url("http://fonts.cdnfonts.com/css/meladu-rose");
+@import url("http://fonts.cdnfonts.com/css/mostraone");
+
+.containerShapes {
+  display: flex;
+}
+
+.title {
+  font-family: "MostraOne", sans-serif;
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  box-shadow: inset 0 0 30px white;
+  width: 900px;
+  height: 150px;
+  border-radius: 80px;
+  text-align: center;
+  padding-top: 12px;
+  background-color: rgb(0, 40, 40);
+}
+
+.predictorForm {
+  /* height: 580px; */
+  margin: 130px auto 55px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.predFormDisp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: rgba(0, 12, 12, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgb(0, 0, 0);
+  font-weight: 700;
+  padding: 20px;
+  color: white;
+  height: 400px;
+  margin: 40px;
+}
+
+.predictorResults {
+  margin: 60px 0px 60px 0px;
+  overflow: scroll;
+  height: 97vh;
+  background-color: rgba(0, 23, 23, 0.6);
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgb(0, 0, 0);
+  border: none;
+  width: 85vw;
+}
+
+.button {
+  color: black;
+  background-color: rgb(129, 255, 249);
+  border: none;
+}
+.button:hover {
+  color: black;
+  background-color: rgb(129, 255, 249);
+  border: none;
+  transform: scale(1.1);
+}
+.button-clicked {
+  color: black;
+  background-color: rgb(129, 255, 249);
+  border: none;
+  box-shadow: inset 0 0 9px rgb(0, 13, 13);
+}
+.button-clicked:hover {
+  color: black;
+  background-color: rgb(129, 255, 249);
+  border: none;
+  transform: scale(1.12);
+}
+
+.custom-select,
+input {
+  height: 50px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  width: 210px;
+  background-color: #fff;
+  border: 2px solid rgb(154, 154, 154);
+  box-shadow: 0 0 2px rgb(108, 108, 108);
+}
+
+.headTable {
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(211, 254, 255);
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(88, 88, 88);
+  border-radius: 10px;
+  width: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: radial-gradient(
+    rgb(151, 255, 253),
+    rgb(0, 122, 179),
+    rgb(0, 39, 57)
+  );
+  border-radius: 10px;
+}
+
+.bgRow {
+  background-color: rgba(244, 255, 255, 0.9);
+  font-weight: 600;
+  border-bottom: 1px solid rgb(78, 78, 78);
+  border-radius: 10px;
+}
+
+table {
+  table-layout: fixed;
+}
+table tbody td {
+  overflow-wrap: break-word;
+}
+
+table thead th {
+  color: #fff;
+  width: 100%;
+}
+
+.active-primary {
+  background-color: rgb(27, 27, 250);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.text-success-score {
+  color: rgb(116, 255, 204);
+}
+
+input.ng-untouched.ng-invalid {
+  box-shadow: 0 0 10px rgb(24, 243, 255);
+  border: none;
+}
+input.ng-touched.ng-invalid {
+  box-shadow: 0 0 10px red;
+  border: none;
+}
+
+input.ng-valid {
+  box-shadow: 0 0 10px rgb(42, 255, 52);
+  border: none;
+}

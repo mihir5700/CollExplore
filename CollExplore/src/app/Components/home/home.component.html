@@ -1,0 +1,103 @@
+<section class="position-relative py-5">
+
+  <!-- Gradient BG -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10"></div>
+
+  <!-- Content -->
+  <div class="container position-relative zindex-2 py-lg-4">
+    <div class="row">
+      <div class="col-lg-5 d-flex flex-column pt-lg-4 pt-xl-5">
+        <h1 class="display-3 mb-4 w-100">Explore <span style="color:#0004ff;">Engineering</span> Colleges pan India</h1>
+        <p class="fs-lg mb-4">Get to know about your most fancied college or <a
+            routerLink="college-predictor"><strong>predict </strong></a>which college you'll get to study in... all in
+          <strong style="color: #4044ee;">ONE</strong> Place.</p>
+
+        <!-- Search Drop Down -->
+        <div class="d-flex mb-3">
+          <div class="input-group d-block d-sm-flex input-group-lg me-3">
+            <select class="custom-select dropdownBar" name="state" [(ngModel)]="collegeData.collegeName" required
+              name="college" #college="ngModel" [class.is-valid]="college.valid"
+              [class.is-invalid]="college.invalid && college.touched" style="width: 31rem;">
+              <option value="">Select a College</option>
+              <option *ngFor="let college of allColleges" name="state">{{college}}</option>
+              {{collegeDetails.college_name}}
+            </select>
+
+          </div>
+          <button type="button" class="btn btn-icon btn-primary btn-lg" [disabled]="college.invalid"
+            (click)="onSearchBtn()" (click)="scroll(target)">
+            <i class="bx bx-search" (click)="onSearchBtn()"></i>
+          </button>
+        </div>
+        <span *ngIf="college.errors && (college.touched) && college?.errors?.['required']" class="mx-2 text-danger">
+          <b>**Kindly Select a College from the list above</b>
+        </span>
+
+      </div>
+
+      <div class="col-lg-7">
+        <!-- Parallax gfx -->
+        <div class="parallax mx-auto me-lg-0" style="max-width: 648px;">
+          <div class="parallax-layer" data-depth="0.1">
+            <img src="assets/img/landing/online-courses/hero/layer01.png" alt="Layer">
+          </div>
+          <div class="parallax-layer" data-depth="0.13">
+            <img src="assets/img/landing/online-courses/hero/layer02.png" alt="Layer">
+          </div>
+          <div class="parallax-layer zindex-5" data-depth="-0.12">
+            <img src="assets/img/landing/online-courses/hero/layer03.png" alt="Layer">
+          </div>
+          <div class="parallax-layer zindex-3" data-depth="0.27">
+            <img src="assets/img/landing/online-courses/hero/layer04.png" alt="Layer">
+          </div>
+          <div class="parallax-layer zindex-1" data-depth="-0.18">
+            <img src="assets/img/landing/online-courses/hero/layer05.png" alt="Layer">
+          </div>
+          <div class="parallax-layer zindex-1" data-depth="0.1">
+            <img src="assets/img/landing/online-courses/hero/layer06.png" alt="Layer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+<div #target>
+  <div class="container p-4 mb-5 my-3 pt-5 mt-3" *ngIf="searchResVis">
+    <h1 class="m-3 my-5" *ngFor="let item of collegeDetails"><strong style="color: #0004ff;">About
+      </strong><strong>"{{item.college_name}}"</strong></h1>
+
+    <div class="container-fluid collegeCard" *ngFor="let item of collegeDetails">
+      <div class="top-img-text text-light">
+        <div class="top-img-overlay text-light">
+          <h1>
+            <a href="{{item.college_website}}" target="_blank">{{item.college_name}} 
+              <span class="material-symbols-rounded">
+                  open_in_new
+              </span>
+            </a>
+          </h1>
+        </div>
+      </div>
+      <div class="detail-items">
+        <div class="abt-college-item m-4 mb-0">
+          <h3 class="m-4 p-1">Location</h3>
+          <p class="m-4 pt-4 college-desc">{{item.address}}</p>
+        </div>
+        <div class="abt-college-item m-4 mb-0">
+          <h3 class="m-4 p-1">Fees</h3>
+          <p class="m-4 pt-4 college-desc">{{item.college_fees|currency: 'INR': 'symbol' : '1.0-0'}} per annum</p>
+        </div>
+        <div class="abt-college-item m-4 mt-0">
+          <h3 class="m-4 p-1">Infrastructure</h3>
+          <p class="m-4 pt-4 college-desc">{{item.college_infrastructure}}</p>
+        </div>
+        <div class="abt-college-item m-4 mt-0">
+          <h3 class="m-4 p-1">Placement</h3>
+          <p class="m-4 pt-4 college-desc">{{item.college_placement/100 | percent: '1.0-0'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

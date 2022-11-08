@@ -1,0 +1,97 @@
+<div class="container predictorForm">
+  <div class="title mb-4">
+    COLLEGE PREDICTOR
+  </div>
+
+  <form #userForm="ngForm" (ngSubmit)="upload()" novalidate
+    class="predFormDisp d-flex flex-column justify-content-center">
+    <div class="form-group m-3">
+      <input type="number" [(ngModel)]="userInfo.marks" class="form-control" style="font-size: 16px; padding: 14px;"
+        name="marks" #marks='ngModel' min="0" minlength="1" max="360" [class.is-valid]="marks.valid"
+        [class.is-invalid]="marks.invalid && marks.touched" required placeholder="Enter Your Score">
+    </div>
+    <span *ngIf="marks.errors && (marks.touched) && marks?.errors?.['required']" class="text-warning">
+      JEE Score is required...Range(0-360)
+    </span>
+
+    <div class="form-group m-3">
+
+      <select class="custom-select" name="branch" [(ngModel)]="userInfo.branch">
+        <option value="">Select a Branch</option>
+        <option *ngFor="let branch of branches" name="branch">{{branch}}</option>
+      </select>
+
+    </div>
+    <div class="form-group m-3">
+
+      <select class="custom-select" name="state" [(ngModel)]="userInfo.state">
+        <option value="">Select a State</option>
+        <option *ngFor="let state of states" name="state">{{state}}</option>
+      </select>
+
+    </div>
+
+    <button type="submit" [disabled]="userForm.form.invalid " (click)="scroll(predictor)" class="btn m-3 button"
+      [ngClass]="{'button-clicked':clicked, 'button':!clicked}">Submit</button>
+  </form>
+
+  <div #predictor>
+    <div class="container rounded my-5"
+      style="background-color: rgba(0, 36, 36, 0.7); width: fit-content; box-shadow: 0 2px 8px black; margin-bottom: -19px;"
+      *ngIf="gotSomeResults">
+      <h5 class="mx-3 text-light" style="position: sticky; top: 0;"><i>{{predictorList.length}} Results so
+          Far....</i> </h5>
+    </div>
+    <div class=" predictorResults mt-0" *ngIf="gotSomeResults">
+      <table class="table table-hover">
+        <thead style="position: sticky; top: 0;  background-color: rgba(0, 21, 21);">
+          <tr>
+            <th scope="col" style="width: 25%;">#</th>
+            <th scope="col" class="w-100">College Name</th>
+            <th *ngIf="userInfo.branch==''" scope="col" class="w-100">Branch Name</th>
+            <th scope="col" class="w-100">Website</th>
+            <th scope="col">Location</th>
+            <th scope="col" class="w-50">Fees</th>
+            <th scope="col" class="w-50">Placement</th>
+            <th scope="col" class="w-75">Infrastructure</th>
+            <th scope="col" class="w-50">Faculties</th>
+          </tr>
+        </thead>
+        <tbody class="container" style="margin: 15px;">
+          <tr class="bgRow" *ngFor="let item of predictorList; let i=index">
+            <td>{{i+1}}</td>
+            <!-- Name -->
+            <td>{{item.college_name}}</td>
+
+            <!-- Branch Name -->
+            <td *ngIf="userInfo.branch==''">{{item.branch_name}}</td>
+
+            <!-- Website -->
+            <td><a href="{{item.college_website}}" target="_blank">{{item.college_website}}</a></td>
+
+            <!-- Address -->
+            <td>{{item.address}}</td>
+
+            <!-- Fees -->
+            <td>{{item.college_fees|currency: 'INR': 'symbol' : '1.0-0'}}</td>
+
+            <!-- Placement -->
+            <td>{{item.college_placement/100 | percent: '1.0-0'}}</td>
+
+            <!-- Infrastructure -->
+            <td>{{item.college_infrastructure}}</td>
+
+            <!-- Faculty -->
+            <td>{{item.college_faculty}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!justOpened && !gotSomeResults" class="container rounded my-5"
+      style="background-color: rgba(0, 36, 36, 0.7); width: fit-content; box-shadow: 0 2px 8px black; margin-bottom: -19px;">
+      <h5 class="mx-3 text-light" style="position: sticky; top: 0;"><i>No Results Found !!</i> </h5>
+    </div>
+  </div>
+
+
+</div>
