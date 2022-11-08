@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  close=true;
   viewPassIcon=false;
   viewPassword=false;
   counter!: number;
@@ -64,4 +65,8 @@ export class LoginComponent implements OnInit {
     this.viewPassIcon=!this.viewPassIcon;
     this.viewPassword=!this.viewPassword;
   } 
+
+  closeit(){
+    this.tryagain=!this.tryagain
+  }
 }

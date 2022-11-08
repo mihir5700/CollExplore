@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn-login btn-lg my-5">
+    <button [disabled]="userForm.form.invalid" type="submit" class="btn-login btn-lg my-5">
       <strong>Sign Up</strong>
     </button>
   </form>
