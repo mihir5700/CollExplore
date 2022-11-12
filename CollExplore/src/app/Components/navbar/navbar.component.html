@@ -44,8 +44,11 @@
     </button>
     <div class="nav-item mx-5" *ngIf="_authService.loggedIn()">
       <div class="dropdown" style="cursor: pointer;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle d-flex" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+          <span class="material-symbols-rounded mx-2">
+            account_circle
+          </span>
           {{this.username}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

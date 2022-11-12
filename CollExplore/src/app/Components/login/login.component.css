@@ -85,6 +85,7 @@ input.ng-touched.ng-invalid {
   border: none;
 }
 
+
 input.ng-valid {
   box-shadow: 0 0 10px rgb(42, 255, 52);
   border: none;
@@ -97,11 +98,11 @@ input.ng-valid {
 }
 .hidden-message{
   color: red;
-  background-color: rgba(1, 0, 21, 0.76);
-  border-radius: 10px;
-  padding: 5px;
-  padding-left: 25px;
+  background-color: rgba(0, 0, 1, 0.648);
+  border-radius: 30px;
+  padding: 2px;
+  transform: translateX(50px);
+  width: fit-content;
 }
-
 
 
