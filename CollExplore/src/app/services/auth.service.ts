@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  private _registerUrl="http://localhost:8080/api/register"
-  private _loginUrl="http://localhost:8080/api/login"
+  private _url="https://astounding-profiterole-7cefd9.netlify.app/"
+  bool=false;
 
   constructor(private http:HttpClient , private _router:Router) { }
 
   registerUser(user: any){
-    return this.http.post<any>(this._registerUrl,user)
+    return this.http.post<any>(this._url+"/register",user)
   }
 
   loginUser(user: any){
-    return this.http.post<any>(this._loginUrl,user)
+    return this.http.post<any>(this._url+"/login",user)
   }
 
-  loggedIn(){
+ 
+
+  loggedIn(){  
     return !!localStorage.getItem('token')
   }
+
+ 
+  authenticate():Observable<any>{
+    return this.http.get(this._url+"/authenticate")
+  }
+
 
   getToken() {
     return localStorage.getItem('token');
@@ -34,6 +43,8 @@ logOut1(){
   .then(() => {
     window.location.reload();
   });
+  // window.location.reload();
+
 }
 logOut2(){
   localStorage.removeItem('token');

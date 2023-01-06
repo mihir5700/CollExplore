@@ -6,25 +6,24 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class ApiService {
-  private _getCollegeUrl="http://localhost:8080/api/get-college";
-  // private _collegeName = "";
+  
+  private _url="https://astounding-profiterole-7cefd9.netlify.app/"
   constructor(private _http:HttpClient) { 
   }
 
   predictCollege(data:any):Observable<any>{
-    return this._http.post("http://localhost:8080/api/predict-college", data)
+    return this._http.post(this._url+"/predict-college", data)
   }
   getallColleges():Observable<any>{
-    return this._http.get("http://localhost:8080/api/get-all-colleges")
+    return this._http.get(this._url+"/get-all-colleges")
   }
 
   getCollegePage(data: any):Observable<any>{
-    return this._http.post(this._getCollegeUrl, data);
+    return this._http.post(this._url+"/get-college", data);
   }
-
   getUserName(data:any):Observable<any>{
     console.log(data);
-    return this._http.post("http://localhost:8080/api/getUsername", {data:data})
+    return this._http.post(this._url+"/getUsername", {data:data})
   }
 
 }
