@@ -7,7 +7,7 @@ import {Observable} from 'rxjs'
 })
 export class ApiService {
   
-  private _url="https://astounding-profiterole-7cefd9.netlify.app/"
+  private _url="http://localhost:8080/api"
   constructor(private _http:HttpClient) { 
   }
 

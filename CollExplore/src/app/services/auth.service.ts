@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class AuthService {
-  private _url="https://astounding-profiterole-7cefd9.netlify.app/"
+  private _url="http://localhost:8080/api"
   bool=false;
 
   constructor(private http:HttpClient , private _router:Router) { }
